@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases - L7 Admin Guard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="usecases_style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">L7 Guard.</a>
+            <ul class="nav-links">
+                <li><a href="usecases.html">Use cases</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="#pricing.html">Pricing</a></li>
+                <li><a href="#competitors.html">Competitors</a></li>
+                <li><a href="#security.html">Security</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#start" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+         <!--
+        <section class="page-header" style="padding: 120px 0 60px; text-align: center;">
+            <div class="container">
+                <span class="badge-tag">Use Cases</span>
+                <h1 class="hero-title" style="font-size: 56px; margin-top: 16px;">
+                    How L7 Guard <span class="text-gradient">secures your workflow</span>
+                </h1>
+                <p class="section-subtitle" style="margin-top: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Discover how different teams use L7 Admin Guard to eliminate VPNs, protect web applications, and manage access effortlessly.
+                </p>
+            </div>
+        </section>
+        -->
+               <!-- блок 3 - краткие use cases, варинат отображения 1 -->
+        <section id="hassle-free-v1" class="hassle-free-section reveal">
+            <div class="container">
+                <span class="badge-tag">Use Cases</span>
+                <h1 class="hero-title" style="font-size: 56px; margin-top: 16px;">
+                    How L7 Guard <span class="text-gradient">secures your workflow</span>
+                </h1>
+
+                <div class="features-grid compact-grid">
+                    
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">🌐</div>
+                            <h3>Замена классическим VPN</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Доступ к админкам по модели Zero Trust (только к конкретной вкладке, а не ко всей сети).</p>
+                            <p class="text-ru">Доступ через браузер. Никаких тяжелых VPN-клиентов, всё работает прямо через наше легкое расширение.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">⏱️</div>
+                            <h3>Безопасный фриланс (Доступ для подрядчиков)</h3>
+                        </div>
+                        
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Выдача временного JIT-доступа (сгорающих токенов) веб-разработчикам и фрилансерам. 
+                                Позволяет дать доступ к админке без необходимости выдавать доступ ко всему корпоративному VPN.</p>
+                            <p class="text-ru">Самоуничтожающиеся токены. Выдайте фрилансеру доступ, который сам закроется, когда закончится время работы.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">🛑</div>
+                            <h3>Мгновенный отзыв доступов</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Управление доступом к десяткам проектов с возможностью мгновенно отзывать права у фрилансеров без рестарта самого сервиса.
+                            </p>
+                            <p class="text-ru">Мгновенно отрезайте доступ любому пользователю, не останавливая и не перезагружая сам сайт.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">👻</div>
+                            <h3>Защита админок WordPress</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Ограничение доступа в админку WP по IP-адресам для всех, кроме шлюзов вашего сервиса. 
+                                Скрытие страницы wp-admin от ботов и злоумышленников без сложных настроек сервера.</p>
+                            <p class="text-ru">Режим невидимки для WordPress. Наш бесплатный плагин полностью скрывает страницу входа в админку от всего интернета.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">📑</div>
+                            <h3>Безопасность мульти-гео агентств</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Управление множеством клиентских сайтов одновременно. Использование разных шлюзов для разных проектов прямо в соседних вкладках браузера.</p>
+                            <p class="text-ru">Удобно для нескольких проектов. Управляйте кучей разных клиентских сайтов одновременно, просто переключаясь между вкладками.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">🕵️</div>
+                            <h3>Защита демо-стендов (Staging-серверов)</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Закрытие доступа к dev-серверам для посторонних. Защита тестовых версий сайтов от преждевременной индексации поисковиками.</p>
+                            <p class="text-ru">Невидимые тестовые сайты. Прячьте свои сайты, которые еще в разработке, от поисковиков (Google) и случайных глаз.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">👽</div>
+                            <h3>Защита от выкачивания данных</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Вы выдаете подрядчику доступ с двойным ограничением: по времени (например, на 2 часа) и по трафику (например, жесткий лимит в 50 Мегабайт). 
+                                Как только он попытается скачать базу данных весом в 500 МБ, шлюз моментально оборвет соединение.
+                            </p>
+                            <p class="text-ru">Невидимые тестовые сайты. Прячьте свои сайты, которые еще в разработке, от поисковиков (Google) и случайных глаз.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">👽</div>
+                            <h3>тут будет юз кейс</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Бла бла бла.</p>
+                            <p class="text-ru">Невидимые тестовые сайты. Прячьте свои сайты, которые еще в разработке, от поисковиков (Google) и случайных глаз.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="feature-card compact-card">
+                        <div class="card-header-inline">
+                            <div class="card-icon-small">👽</div>
+                            <h3>ту будет юзкейс</h3>
+                        </div>
+                        <div class="card-desc-wrapper">
+                            <p class="text-en">Бла бла бла бла.</p>
+                            <p class="text-ru">Невидимые тестовые сайты. Прячьте свои сайты, которые еще в разработке, от поисковиков (Google) и случайных глаз.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+                <!-- блок 3 - краткие use cases, варинат отображения 3 --> 
+        <section id="hassle-free-v3-part1" class="v3-section reveal">
+            <div class="container">
+                
+                <div class="center-header" style="margin-bottom: -20px; margin-top: 27px;">
+                    <span class="badge-tag">What you get</span>
+                    <h2 class="section-title" style="font-size: 32px;">Security Without the Hassle (Part 1)</h2>
+                </div>
+
+                <a href="#" class="v3-row">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">Browser-Based</span> Access</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Skip the heavy VPN clients. Securely connect to your admin panel using only our lightweight browser extension.</p>
+                            <p class="text-ru">Доступ через браузер. Никаких тяжелых VPN-клиентов, всё работает прямо через наше легкое расширение.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>Browser-Based Access</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="v3-row reverse">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">Time-Limited</span> Access</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Give contractors temporary access that automatically deletes itself when their shift is over.</p>
+                            <p class="text-ru">Самоуничтожающиеся токены. Выдайте фрилансеру доступ, который сам закроется, когда закончится время работы.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>Time-Limited Access</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="v3-row">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">One-Click</span> Kill Switch</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Instantly revoke access for any user or third-party developer without restarting your website.</p>
+                            <p class="text-ru">Мгновенно отрезайте доступ любому пользователю, не останавливая и не перезагружая сам сайт.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>Kill Switch</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="hassle-free-v3-part2" class="v3-section reveal">
+            <div class="container">
+                
+                <a href="#" class="v3-row reverse">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">WordPress</span> Stealth Mode</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Pair the extension with our free plugin to completely hide your wp-admin page from the public internet.</p>
+                            <p class="text-ru">Режим невидимки для WordPress. Наш бесплатный плагин полностью скрывает страницу входа в админку от всего интернета.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>WordPress Stealth Mode</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="v3-row">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">Multi-Project</span> Friendly</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Manage multiple client websites securely at the same time, right from different tabs in your browser.</p>
+                            <p class="text-ru">Удобно для нескольких проектов. Управляйте кучей разных клиентских сайтов одновременно, переключаясь между вкладками.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>Multi-Project Friendly</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="v3-row reverse">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">Private</span> Demo Sites</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Keep your unfinished development servers hidden from search engines, bots, and unauthorized visitors.</p>
+                            <p class="text-ru">Невидимые тестовые сайты. Прячьте свои сайты, которые еще в разработке, от поисковиков (Google) и случайных глаз.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>Private Demo Sites</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="hassle-free-v3-part3" class="v3-section reveal">
+            <div class="container">
+                
+                <a href="#" class="v3-row reverse">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">WordPress</span> Stealth Mode</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Pair the extension with our free plugin to completely hide your wp-admin page from the public internet.</p>
+                            <p class="text-ru">Режим невидимки для WordPress. Наш бесплатный плагин полностью скрывает страницу входа в админку от всего интернета.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>WordPress Stealth Mode</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="v3-row">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">Multi-Project</span> Friendly</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Manage multiple client websites securely at the same time, right from different tabs in your browser.</p>
+                            <p class="text-ru">Удобно для нескольких проектов. Управляйте кучей разных клиентских сайтов одновременно, переключаясь между вкладками.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>Multi-Project Friendly</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="v3-row reverse">
+                    <div class="v3-text">
+                        <h3 class="v3-title"><span class="highlight">Private</span> Demo Sites</h3>
+                        <div class="v3-desc-wrapper">
+                            <p class="text-en">Keep your unfinished development servers hidden from search engines, bots, and unauthorized visitors.</p>
+                            <p class="text-ru">Невидимые тестовые сайты. Прячьте свои сайты, которые еще в разработке, от поисковиков (Google) и случайных глаз.</p>
+                        </div>
+                    </div>
+                    <div class="v3-visual">
+                        <div class="v3-video-placeholder">
+                            <span class="play-btn">▶</span>
+                            <span>Private Demo Sites</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="logo">L7 Guard.</span>
+                <p class="copyright">&copy; 2026 L7 Admin Guard. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="mailto:contact@l7guard.com">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

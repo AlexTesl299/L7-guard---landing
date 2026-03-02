@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under the Hood - L7 Admin Guard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="features.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">L7 Guard.</a>
+            <ul class="nav-links">
+                <li><a href="usecases.html">Use cases</a></li>
+                <li><a href="features.html" style="color: var(--text-main);">Features</a></li>
+                <li><a href="index.html#comparison">Competitors</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#security">Security</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#start" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+       
+        <section class="page-header" style="padding: 120px 0 60px; text-align: center;">
+            <div class="container">
+                <span class="badge-tag">Under the Hood</span>
+                <h1 class="hero-title" style="font-size: 56px; margin-top: 16px;">
+                    Built for <span class="text-gradient">Engineers.</span>
+                </h1>
+                <p class="section-subtitle">
+                    No marketing fluff. Just Go-microkernels, zero-copy routing, and absolute control over your infrastructure.
+                </p>
+            
+                <div class="terminal-layout" style="padding: 80px 0 60px; text-align: center;">
+                    <div class="terminal-text">
+                        <h2>Deploy in <span style="color: var(--accent-color);">25 seconds</span>.</h2>
+                        <p>Автоматическое развертывание собственного шлюза (Self-hosted) на облачных серверах (Hetzner, DO, Vultr). Без привлечения DevOps-инженеров.</p>
+                        <ul class="tech-list">
+                            <li><span class="check">✓</span> Zero-config cert bootstrap (через WebSocket)</li>
+                            <li><span class="check">✓</span> Live Cert Rotation без рестарта</li>
+                            <li><span class="check">✓</span> ARM64 / Edge Ready</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="term-btn red"></div>
+                            <div class="term-btn yellow"></div>
+                            <div class="term-btn green"></div>
+                            <div class="term-title">deploy.sh — root@l7-guard</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div id="typewriter-text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bento-section reveal" style="padding: 60px 0 100px;">
+            <div class="container">
+                <h2 style="font-size: 32px; margin-top: 20px; margin-bottom: 20px; text-align: center;">Технические спецификации</h2>
+                
+                <div class="bento-grid">
+                    
+                    <div class="bento-card bento-wide">
+                        <div class="card-header-inline">
+                            <div class="bento-icon">⚙️</div>
+                            <h3>Архитектура и Маршрутизация</h3>
+                        </div>
+                        <ul class="bento-list two-cols">
+                            <li><strong>Go-powered Single Binary меньшн 10 МБ </strong> Весь бэкенд написан на Go, весит меньше 10 мегабайт и работает молниеносно.</li>
+                            <li><strong>Browser Extension (Clientless):</strong> Доступ работает через легкое браузерное расширение. Никаких десктопных VPN.</li>
+                            <li><strong>Zero-copy & SNI-routing:</strong> Высокоскоростная маршрутизация без "вскрытия" и расшифровки пакетов (No MITM).</li>
+                            <li><strong>Per-Tab Split Tunneling:</strong> Направляйте трафик в разные шлюзы прямо из соседних вкладок браузера.</li>
+                            <li><strong>Dynamic Domain Rotation:</strong> Умный обход кэша Chromium за счет автоматической ротации Wildcard-доменов.</li>
+                            <li><strong>Stealth Mode:</strong> Шлюз отдает 404 случайным ботам, прикидываясь несуществующей страницей.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-header-inline">
+                            <div class="bento-icon">🔐</div>
+                            <h3>Управление доступом</h3>
+                        </div>
+                        <ul class="bento-list">
+                            <li><strong>JIT Access:</strong> Временные доступы подрядчикам.</li>
+                            <li><strong>Stateful TTL:</strong> Изменение времени "жизни" токена на лету.</li>
+                            <li><strong>Instant Kill-Switch:</strong> Отзыв прав за миллисекунды без рестарта.</li>
+                            <li><strong>Bandwidth Quota:</strong> Жесткие лимиты на скачивание трафика.</li>
+                            <li><strong>Dynamic ACL:</strong> Изменение политик в реальном времени.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-card">
+                         <div class="card-header-inline">
+                            <div class="bento-icon">👻</div>
+                            <h3>WordPress Плагин</h3>
+                        </div>
+                        <ul class="bento-list">
+                            <li><strong>IP Whitelisting Core:</strong> Блокировка входа для всех IP, кроме шлюзов L7.</li>
+                            <li><strong>Dynamic API Updates:</strong> Авто-обновление списка разрешенных адресов.</li>
+                            <li><strong>Fail-safe:</strong> Отключение защиты одной строкой в wp-config.php.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-header-inline">
+                            <div class="bento-icon">🕵️</div>
+                            <h3>Приватность и Идентификация</h3>
+                        </div>
+                        <ul class="bento-list">
+                            <li><strong>Zero Logs:</strong> Мы не пишем логи и не храним PII. Абсолютная приватность.</li>
+                            <li><strong>SSO Integration:</strong> Google, GitHub, GitLab, MS Entra.</li>
+                            <li><strong>Passphrase Tokens:</strong> Дополнительная защита токенов паролем.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bento-card bento-accent">
+                        <div class="card-header-inline">
+                            <div class="bento-icon" style="color: #000;">⚡</div>
+                            <h3 style="color: #000;">Ready to scale</h3>
+                        </div>
+                        <p style="color: #333; font-size: 14px; margin-top: 12px;">Построено для работы под высокими нагрузками. Независимые ноды, отсутствие единой точки отказа (SPOF).</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" style="padding: 80px 0 120px; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 40px; margin-bottom: 24px;">Готовы забыть о VPN?</h2>
+                <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 18px;">Разверните свой первый шлюз за 25 секунд и обезопасьте свою инфраструктуру.</p>
+                <a href="#" class="btn btn-primary btn-large">Попробуйте L7 Guard сегодня</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="logo">L7 Guard.</span>
+                <p class="copyright">&copy; 2026 L7 Admin Guard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="features-terminal.js"></script>
+</body>
+</html>
