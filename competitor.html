@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitors Matrix - L7 Admin Guard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="competitors.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">L7 Guard.</a>
+            <ul class="nav-links">
+                <li><a href="usecases.html">Use cases</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="competitor.html" style="color: var(--text-main);" >Competitors</a></li>               
+                <li><a href="security.html">Security</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#start" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <section id="competitors-main" class="competitors-combined-section">
+            <div class="container combined-container">
+                
+                <div class="comp-header-text">
+                    <span class="badge-tag">Competitive Analysis</span>
+                    <h1 class="hero-title">How we stack up against <span class="text-gradient">the giants</span></h1>
+                    <p class="section-subtitle">Детальное техническое сравнение с популярными решениями. Кликните на любую колонку, чтобы подсветить конкурента.</p>
+                </div>
+
+                <div class="matrix-wrapper">
+                    <table class="competitor-matrix">
+                        <thead>
+                            <tr>
+                                <th class="col-feature sticky-col">Функция / Критерий</th>
+                                <th class="highlight-col clickable-col">L7 Guard</th>
+                                <th class="clickable-col">Cloudflare</th>
+                                <th class="clickable-col">Tailscale</th>
+                                <th class="clickable-col">Teleport</th>
+                                <th class="clickable-col">Twingate</th>
+                                <th class="clickable-col">Boundary</th>
+                                <th class="clickable-col">ngrok</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr class="category-row">
+                                <td colspan="8">Архитектура и Производительность</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">No MITM / SNI Routing (без расшифровки)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Browser Extension (без десктоп клиента)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Single Binary (<10 MB)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Self-hosted возможность</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                            </tr>
+
+                            <tr class="category-row">
+                                <td colspan="8">Сертификаты и Деплой</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Автодеплой шлюза за <30 секунд</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Автовыпуск Wildcard TLS</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Live Cert Rotation без рестарта</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+
+                            <tr class="category-row">
+                                <td colspan="8">Управление доступом</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Stateful TTL (изменение на лету)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Instant Kill-Switch (мгновенный отзыв)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Bandwidth Quota / Лимиты трафика</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                            </tr>
+
+                            <tr class="category-row">
+                                <td colspan="8">Браузер и UX</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Per-Tab Split Tunneling</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Stealth Mode (404 для сканеров)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+
+                            <tr class="summary-row">
+                                <td class="col-feature sticky-col" style="font-weight: 800;">Уникальных функций</td>
+                                <td class="highlight-col" style="font-size: 24px; color: var(--text-main);">34/34</td>
+                                <td>8/34</td>
+                                <td>10/34</td>
+                                <td>9/34</td>
+                                <td>5/34</td>
+                                <td>7/34</td>
+                                <td>5/34</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="logo">L7 Guard.</span>
+                <p class="copyright">&copy; 2026 L7 Admin Guard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const table = document.querySelector('.competitor-matrix');
+            if (!table) return;
+
+            // Слушаем клики по таблице
+            table.addEventListener('click', (e) => {
+                // Ищем, по какой ячейке (td или th) кликнули
+                const cell = e.target.closest('td, th');
+                if (!cell) return;
+
+                // Запрещаем кликать по первой колонке с названиями и по строкам-разделителям
+                if (cell.classList.contains('col-feature') || cell.hasAttribute('colspan')) return;
+
+                // Узнаем порядковый номер колонки, по которой кликнули (от 0 до 7)
+                const targetIndex = cell.cellIndex;
+
+                // 1. Убираем подсветку у ВСЕХ ячеек
+                const allCells = table.querySelectorAll('td, th');
+                allCells.forEach(c => c.classList.remove('highlight-col'));
+
+                // 2. Добавляем подсветку ВСЕМ ячейкам, которые находятся в этой же колонке
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+                    // Пропускаем строки с названиями категорий
+                    if (row.classList.contains('category-row')) return;
+                    
+                    const targetCell = row.children[targetIndex];
+                    if (targetCell) {
+                        targetCell.classList.add('highlight-col');
+                    }
+                });
+            });
+        });
+    </script>
+</html>

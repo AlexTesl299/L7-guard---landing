@@ -1,0 +1,469 @@
+/* ========================================== */
+/* СТИЛИ ДЛЯ СТРАНИЦЫ SECURITY                */
+/* ========================================== */
+
+/* Z-PATTERN LAYOUT */
+.sec-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 100px;
+}
+
+.sec-row:last-child {
+    margin-bottom: 0;
+}
+
+.sec-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.sec-text {
+    flex: 1;
+}
+
+.sec-label {
+    display: inline-block;
+    color: var(--accent-color);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.sec-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.sec-text p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.sec-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sec-list li {
+    font-size: 15px;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.sec-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.sec-list li strong {
+    color: var(--text-main);
+}
+
+/* ========================================== */
+/* ТЕХНИЧЕСКАЯ ВИЗУАЛИЗАЦИЯ (DIAGRAMS)        */
+/* ========================================== */
+
+.sec-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Общий контейнер для схем */
+.tech-diagram {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(145deg, #0d0f12, #13171f);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Фоновая сетка для красоты */
+.tech-diagram::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+}
+
+/* Элементы внутри схем должны быть поверх сетки */
+.tech-diagram > * {
+    z-index: 1;
+}
+
+/* ВИЗУАЛ 1: Архитектура без логов */
+.node {
+    padding: 12px 24px;
+    background: #1a202c;
+    border: 1px solid #4a5568;
+    border-radius: 8px;
+    color: var(--text-main);
+    font-family: monospace;
+    font-size: 14px;
+}
+.data-line {
+    width: 2px;
+    height: 60px;
+    background: repeating-linear-gradient(to bottom, #4a5568, #4a5568 4px, transparent 4px, transparent 8px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.data-line span {
+    background: #0d0f12;
+    padding: 4px 8px;
+    color: #ef4444; /* Красный цвет: логов нет */
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid #ef4444;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* ВИЗУАЛ 2: Шифрование (TLS) */
+.encryption-box {
+    text-align: center;
+    background: rgba(217, 249, 101, 0.05);
+    border: 1px solid rgba(217, 249, 101, 0.2);
+    padding: 30px;
+    border-radius: 12px;
+}
+.lock-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    animation: pulseLock 2s infinite;
+}
+.cipher-text {
+    color: var(--accent-color);
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.cipher-bar {
+    margin-top: 16px;
+    height: 4px;
+    width: 100%;
+    background: var(--accent-color);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+@keyframes pulseLock {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* ВИЗУАЛ 3: ACL (Drop connection) */
+.acl-rules {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.rule {
+    background: #111827;
+    border: 1px solid #374151;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 13px;
+    color: #9ca3af;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.badge {
+    padding: 24px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.badge.green { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid #22c55e; }
+.badge.red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+/* ВИЗУАЛ 4: Бинарник */
+.binary-box {
+    background: #1f2937;
+    border: 2px solid #4b5563;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 80%;
+}
+.binary-header {
+    background: #374151;
+    padding: 10px 16px;
+    color: var(--text-main);
+    font-family: monospace;
+    font-size: 14px;
+    border-bottom: 2px solid #4b5563;
+}
+.binary-stats {
+    padding: 16px;
+    color: #9ca3af;
+    font-family: monospace;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* ========================================== */
+/* BUG BOUNTY СЕКЦИЯ                          */
+/* ========================================== */
+.bounty-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 60px 40px;
+    border-radius: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 900px) {
+    .sec-row, .sec-row.reverse {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    .sec-list li {
+        text-align: left;
+    }
+}
+
+/* ========================================== */
+/* СТОЛПЫ ДОВЕРИЯ (PILLARS)                   */
+/* ========================================== */
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 75px;
+}
+
+.pillar-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.pillar-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.pillar-card h3 {
+    font-size: 18px;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.pillar-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ========================================== */
+/* ЦЕНТРИРОВАННЫЙ БЛОК (Последний ряд)        */
+/* ========================================== */
+
+.sec-row.centered-row {
+    flex-direction: column; /* Ставим текст над схемой */
+    gap: 0;
+}
+
+/* Делаем список в центральном блоке горизонтальным */
+.sec-list.inline-list {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+}
+
+.sec-list.inline-list li {
+    padding-left: 0;
+}
+
+.sec-list.inline-list li::before {
+    display: none; /* Убираем стрелочки для горизонтального списка */
+}
+
+.full-width-visual {
+    width: 100%;
+}
+
+/* Делаем схему широкой, а не квадратной */
+.tech-diagram.wide-diagram {
+    aspect-ratio: auto;
+    height: 160px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Визуал для 407 Recovery */
+.recovery-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.flow-step {
+    background: #1a202c;
+    border: 1px solid #4a5568;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 13px;
+    color: var(--text-main);
+    text-align: center;
+}
+
+.flow-arrow {
+    color: var(--text-muted);
+    font-size: 20px;
+}
+
+.error-step {
+    border-color: #ef4444;
+    color: #f87171;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.success-step {
+    border-color: #22c55e;
+    color: #4ade80;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+}
+
+/* Адаптив для новых блоков */
+@media (max-width: 900px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sec-list.inline-list {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .recovery-flow {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .tech-diagram.wide-diagram {
+        height: auto;
+        padding: 40px 20px;
+    }
+    
+    .flow-arrow {
+        transform: rotate(90deg); /* Поворачиваем стрелки вниз на мобилках */
+    }
+}
+
+/* ========================================== */
+/* ПЕРВЫЙ ЭКРАН (ГЕРОЙ + ПИЛЛАРЫ)             */
+/* ========================================== */
+
+.security-hero-section {
+    min-height: 100vh; /* Занимает весь экран */
+    display: flex;
+    align-items: center; /* Центрирует всё содержимое по вертикали */
+    padding-top: 80px; /* Учитываем высоту прилипшей шапки сайта */
+    padding-bottom: 60px;
+}
+
+.sec-intro-text {
+    text-align: center;
+    margin-bottom: 60px; /* Задаем красивое расстояние до 3-х карточек */
+}
+
+/* ========================================== */
+/* СТОЛПЫ ДОВЕРИЯ (PILLARS)                   */
+/* ========================================== */
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    /* Убрали верхний padding и border, так как блок теперь отделен отступами */
+}
+
+/* ... старые стили .pillar-card остаются без изменений ... */
+
+
+/* ========================================== */
+/* ПОСЛЕДНИЙ ЭКРАН (BUG BOUNTY)               */
+/* ========================================== */
+
+.bug-bounty-section {
+    min-height: 100vh; /* Занимает ровно 1 экран по высоте */
+    display: flex;
+    align-items: center; /* Центрирует по вертикали (сверху и снизу) */
+    justify-content: center; /* Центрирует по горизонтали (с боков) */
+    padding: 0; 
+}
+
+.bounty-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bounty-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 80px 40px; /* Сделали его чуть больше и "воздушнее" */
+    border-radius: 24px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center; /* Текст внутри блока по центру */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Добавили мягкую тень */
+}

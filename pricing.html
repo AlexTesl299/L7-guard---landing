@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - L7 Admin Guard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pricing.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">L7 Guard.</a>
+            <ul class="nav-links">
+                 <li><a href="usecases.html">Use cases</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html style=" style="color: var(--text-main);">Pricing</a></li>
+                <li><a href="competitor.html">Competitors</a></li>               
+                <li><a href="security.html">Security</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#start" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+   <main class="main-content">
+        
+        <section class="pricing-fullscreen-section">
+            <div class="container pricing-flex-container">
+                
+                <div class="pricing-header-compact">
+                    <span class="badge-tag">Simple Pricing</span>
+                    <h1 class="hero-title">Zero Trust. <span class="text-gradient">Zero Hidden Fees.</span></h1>
+                    
+                    <div class="currency-toggle-wrapper">
+                        <div class="currency-toggle">
+                            <button class="currency-btn active" data-currency="usd">USD ($)</button>
+                            <button class="currency-btn" data-currency="eur">EUR (€)</button>
+                            <button class="currency-btn" data-currency="rub">UAH ()</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-grid">
+                    
+                    <div class="pricing-card compact-card">
+                        <div class="card-header">
+                            <h3>Starter</h3>
+                            <p>Для фрилансеров и соло</p>
+                        </div>
+                        <div class="card-price">
+                            <span class="currency-symbol">$</span><span class="price-amount" data-usd="12" data-eur="11" data-rub="1100">12</span><span class="billing-period">/mo</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li class="included">1 Self-hosted шлюз</li>
+                            <li class="included">До 5 пользователей</li>
+                            <li class="included">Базовые JIT-токены</li>
+                            <li class="not-included">Нет Managed Cloud</li>
+                            <li class="not-included">Нет групповых токенов</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary full-width">Start Free Trial</a>
+                    </div>
+
+                    <div class="pricing-card popular-card compact-card">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="card-header">
+                            <h3>Pro Team</h3>
+                            <p>Для небольших команд</p>
+                        </div>
+                        <div class="card-price">
+                            <span class="currency-symbol">$</span><span class="price-amount" data-usd="29" data-eur="27" data-rub="2800">29</span><span class="billing-period">/mo</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li class="included">До 3 шлюзов (Managed/Self-hosted)</li>
+                            <li class="included">До 25 пользователей</li>
+                            <li class="included">Продвинутый Stateful TTL</li>
+                            <li class="included">Групповые токены</li>
+                            <li class="included">Лимиты трафика</li>
+                            <li class="included">Приоритетная поддержка</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary full-width">Start Free Trial</a>
+                    </div>
+
+                    <div class="pricing-card compact-card">
+                        <div class="card-header">
+                            <h3>Agency</h3>
+                            <p>Для управления десятками сайтов</p>
+                        </div>
+                        <div class="card-price">
+                            <span class="currency-symbol">$</span><span class="price-amount" data-usd="89" data-eur="82" data-rub="8500">89</span><span class="billing-period">/mo</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li class="included">Неограниченно шлюзов</li>
+                            <li class="included">Неограниченно пользователей</li>
+                            <li class="included">Per-Tab Split Tunneling</li>
+                            <li class="included">API для автоматизации</li>
+                            <li class="included">SSO (Google, GitHub, GitLab)</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary full-width">Contact Sales</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="logo">L7 Guard.</span>
+                <p class="copyright">&copy; 2026 L7 Admin Guard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.currency-btn');
+            const amounts = document.querySelectorAll('.price-amount');
+            const symbols = document.querySelectorAll('.currency-symbol');
+
+            const symbolMap = {
+                'usd': '$',
+                'eur': '€',
+                'uah': ''
+            };
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Убираем активный класс у всех
+                    buttons.forEach(b => b.classList.remove('active'));
+                    // Добавляем нажатой кнопке
+                    btn.classList.add('active');
+
+                    const selectedCurrency = btn.getAttribute('data-currency');
+
+                    // Обновляем цены и символы
+                    amounts.forEach(amount => {
+                        amount.textContent = amount.getAttribute(`data-${selectedCurrency}`);
+                    });
+                    symbols.forEach(symbol => {
+                        symbol.textContent = symbolMap[selectedCurrency];
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

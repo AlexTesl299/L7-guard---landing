@@ -1,0 +1,258 @@
+/* ========================================== */
+/* СТИЛИ ДЛЯ МАТРИЦЫ КОНКУРЕНТОВ              */
+/* ========================================== */
+
+.matrix-wrapper {
+    background: #0d0f12; /* Темный фон таблицы */
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow-x: auto; /* ВАЖНО: включает горизонтальный скролл на мобилках */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Скрываем системный ползунок скролла для красоты */
+.matrix-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+.matrix-wrapper::-webkit-scrollbar-track {
+    background: #1a202c;
+    border-radius: 0 0 16px 16px;
+}
+.matrix-wrapper::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 8px;
+}
+
+.competitor-matrix {
+    width: 100%;
+    min-width: 1000px; /* Таблица не будет сжиматься меньше этого значения */
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.competitor-matrix th,
+.competitor-matrix td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+    color: var(--text-muted);
+    vertical-align: middle;
+}
+
+.competitor-matrix th:last-child,
+.competitor-matrix td:last-child {
+    border-right: none;
+}
+
+/* ШАПКА ТАБЛИЦЫ */
+.competitor-matrix thead th {
+    background: #13171f;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 24px 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* СТРОКИ-КАТЕГОРИИ (Разделители) */
+.category-row td {
+    background: #1a202c;
+    color: var(--text-main);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-align: left;
+    padding: 12px 20px;
+}
+
+/* ЗАЛИПАЮЩАЯ ПЕРВАЯ КОЛОНКА */
+/* Когда юзер скроллит таблицу вправо, первая колонка остается на месте */
+.col-feature.sticky-col {
+    position: sticky;
+    left: 0;
+    text-align: left;
+    background: #0d0f12; /* Цвет фона должен совпадать с таблицей */
+    z-index: 2; /* Чтобы она была поверх других ячеек при скролле */
+    font-weight: 500;
+    color: var(--text-main);
+    max-width: 300px; /* Ограничиваем ширину длинного текста */
+}
+
+/* ПОДСВЕТКА НАШЕГО ПРОДУКТА (L7 Guard) */
+.col-l7.highlight-col {
+    background: rgba(217, 249, 101, 0.05); /* Легкий зеленый акцент */
+    font-weight: bold;
+    color: var(--text-main);
+    border-left: 2px solid rgba(217, 249, 101, 0.3);
+    border-right: 2px solid rgba(217, 249, 101, 0.3);
+}
+
+.competitor-matrix thead .col-l7.highlight-col {
+    background: rgba(217, 249, 101, 0.1);
+    color: var(--accent-color);
+    border-top: 2px solid var(--accent-color);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+/* ИКОНКИ ДА/НЕТ/ЧАСТИЧНО */
+.icon-yes {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(217, 249, 101, 0.1);
+    color: var(--accent-color);
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.icon-no {
+    color: #ef4444; /* Красный */
+    font-weight: 800;
+    font-size: 16px;
+    opacity: 0.5; /* Делаем крестики менее навязчивыми */
+}
+
+.icon-partial {
+    color: #eab308; /* Желтый */
+    font-weight: 800;
+    font-size: 18px;
+}
+
+/* Анимация при наведении на строку */
+.competitor-matrix tbody tr:not(.category-row):not(.summary-row):hover td {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ИТОГОВАЯ СТРОКА */
+.summary-row td {
+    border-top: 2px solid var(--border-color);
+    background: #13171f;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 24px 20px;
+}
+
+/* ========================================== */
+/* СТИЛИ ДЛЯ СТРАНИЦЫ КОНКУРЕНТОВ             */
+/* ========================================== */
+
+/* Делаем так, чтобы весь контент страницы занимал ровно 1 экран (100vh) */
+.competitors-combined-section {
+    height: 100vh;
+    padding-top: 100px; /* Отступ под шапку сайта */
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Запрещаем скроллиться всей странице */
+}
+
+.combined-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.comp-header-text {
+    text-align: center;
+    margin-bottom: 24px;
+    flex-shrink: 0; /* Запрещаем тексту сплющиваться */
+}
+
+.comp-header-text .hero-title {
+    font-size: 42px; /* Чуть уменьшили заголовок, чтобы дать место таблице */
+    margin: 12px 0;
+}
+
+.comp-header-text .section-subtitle {
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+/* ========================================== */
+/* ОБОЛОЧКА ТАБЛИЦЫ (ВНУТРЕННИЙ СКРОЛЛ)       */
+/* ========================================== */
+
+.matrix-wrapper {
+    flex-grow: 1; /* Забирает всё оставшееся место по высоте */
+    min-height: 0; /* Обязательно для работы внутреннего скролла */
+    background: #0d0f12; 
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    
+    /* ВКЛЮЧАЕМ ДВОЙНОЙ СКРОЛЛ */
+    overflow-x: auto; /* Горизонтальный скролл на телефонах */
+    overflow-y: auto; /* Вертикальный скролл для самой таблицы */
+    
+    /* ВКЛЮЧАЕМ МАГНИТНОСТЬ ВНУТРИ ТАБЛИЦЫ */
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Примагничиваем строки-разделители категорий к верху таблицы */
+.category-row {
+    scroll-snap-align: start;
+    scroll-margin-top: 68px; /* Отступаем размер "липкой" шапки таблицы, чтобы она не перекрыла заголовок */
+}
+
+/* Делаем шапку таблицы "липкой" по вертикали */
+.competitor-matrix thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #13171f;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 24px 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Тень под шапкой при скролле */
+}
+
+/* Пересечение двух "липких" осей (левый верхний угол) */
+.competitor-matrix thead th.col-feature {
+    z-index: 12;
+    left: 0;
+}
+
+/* ========================================== */
+/* ИНТЕРАКТИВНАЯ ПОДСВЕТКА                    */
+/* ========================================== */
+
+/* Делаем шапки колонок кликабельными (курсор в виде пальца) */
+.clickable-col {
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.clickable-col:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Класс, который JS будет добавлять нужной колонке */
+.highlight-col {
+    background: rgba(217, 249, 101, 0.05);
+    font-weight: bold;
+    color: var(--text-main);
+    border-left: 2px solid rgba(217, 249, 101, 0.3);
+    border-right: 2px solid rgba(217, 249, 101, 0.3);
+    transition: all 0.3s ease; /* Плавное перетекание подсветки */
+}
+
+.competitor-matrix thead .highlight-col {
+    background: rgba(9, 15, 4, 0.658);
+    color: var(--accent-color);
+    border-top: 2px solid var(--accent-color);
+    font-size: 18px;
+    font-weight: 800;
+}

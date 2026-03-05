@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Privacy - L7 Admin Guard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="security.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">L7 Guard.</a>
+            <ul class="nav-links">
+                 <li><a href="usecases.html">Use cases</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="competitor.html">Competitors</a></li>               
+                <li><a href="security.html" style="color: var(--text-main);">Security</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#start" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <section class="security-hero-section">
+            <div class="container">
+                
+                <div class="sec-intro-text">
+                    <span class="badge-tag">Trust & Architecture</span>
+                    <h1 class="hero-title" style="font-size: 50px; margin-top: 16px;">
+                        Security <span class="text-gradient">By Design.</span>
+                    </h1>
+                    <p class="section-subtitle" style="margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        We built L7 Admin Guard on the principles of Zero Trust, absolute privacy, and stateless infrastructure. We physically cannot read your traffic.
+                    </p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">👁️‍🗨️</div>
+                        <h3>Zero Telemetry</h3>
+                        <p>No silent analytics. What happens on your gateway, stays on your gateway.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">⚡</div>
+                        <h3>O(1) Verification</h3>
+                        <p>Access control lists are verified in memory in nanoseconds. No database bottlenecks.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">⚖️</div>
+                        <h3>GDPR Compliant</h3>
+                        <p>Engineered to hold no Personally Identifiable Information (PII) at any time.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="security-z-section" style="padding: 40px 0 80px;">
+            <div class="container">
+
+                <div class="sec-row">
+                    <div class="sec-text">
+                        <span class="sec-label">01 / Privacy</span>
+                        <h2 class="sec-title">Absolute Privacy & Zero Logs</h2>
+                        <p>Our infrastructure operates on a strict identity-agnostic model. We do not require user accounts, we do not log access attempts, and we do not store PII.</p>
+                        <ul class="sec-list">
+                            <li><strong>GDPR Compliant:</strong> Engineered to hold nothing, meaning there is no data to breach.</li>
+                            <li><strong>No Telemetry:</strong> The gateway does not silently phone home.</li>
+                        </ul>
+                    </div>
+                    <div class="sec-visual">
+                        <div class="tech-diagram">
+                            <div class="node user-node">User</div>
+                            <div class="data-line secure-line"><span>No Logs</span></div>
+                            <div class="node server-node">L7 Gateway</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sec-row reverse">
+                    <div class="sec-text">
+                        <span class="sec-label">02 / Encryption</span>
+                        <h2 class="sec-title">SNI-Routing without MITM</h2>
+                        <p>Unlike traditional proxies, L7 Guard routes traffic based purely on Server Name Indication (SNI) during the TLS handshake. We do not decrypt your SSL/TLS traffic.</p>
+                        <ul class="sec-list">
+                            <li><strong>End-to-End Encryption:</strong> Your data remains encrypted from the browser directly to your target server.</li>
+                            <li><strong>Math-based Trust:</strong> Passwords, cookies, and request bodies are technically inaccessible to our gateways.</li>
+                        </ul>
+                    </div>
+                    <div class="sec-visual">
+                        <div class="tech-diagram">
+                            <div class="encryption-box">
+                                <div class="lock-icon">🔒</div>
+                                <div class="cipher-text">TLS 1.3 / AEAD ChaCha20</div>
+                                <div class="cipher-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sec-row">
+                    <div class="sec-text">
+                        <span class="sec-label">03 / Access Control</span>
+                        <h2 class="sec-title">Per-User Microsegmentation</h2>
+                        <p>100 contractors connected to the same gateway are perfectly isolated. User A can only resolve `wp-admin`, while User B only sees `grafana`. Attempting to access unauthorized routes results in an instant TCP Drop.</p>
+                        <ul class="sec-list">
+                            <li><strong>Stateful TTL:</strong> Access permissions and bandwidth limits are verified in real-time.</li>
+                            <li><strong>Instant Kill-Switch:</strong> Revoke access in milliseconds without breaking existing valid connections.</li>
+                        </ul>
+                    </div>
+                    <div class="sec-visual">
+                        <div class="tech-diagram">
+                            <div class="acl-rules">
+                                <div class="rule allow">➜ user_A : wp-admin.local <span class="badge green">ALLOW</span></div>
+                                <div class="rule deny">➜ user_A : grafana.local <span class="badge red">DROP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sec-row centered-row" style="margin-top: 120px;">
+                    <div class="sec-text" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                        <span class="sec-label">04 / Resilience</span>
+                        <h2 class="sec-title">Smart 407 Recovery & Fail-Safe</h2>
+                        <p>During live credential rotation or aggressive cache clearing, the gateway may return a 407 Proxy Authentication error. The L7 browser extension intercepts this before the user even sees it, transparently negotiating new credentials.</p>
+                        <ul class="sec-list inline-list">
+                            <li><strong>Zero Interruption:</strong> Live key rotation without dropping active file downloads.</li>
+                            <li><strong>Self-Healing:</strong> Transparent retry mechanisms built into the extension.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sec-visual full-width-visual" style="margin-top: 40px;">
+                        <div class="tech-diagram wide-diagram">
+                            <div class="recovery-flow">
+                                <div class="flow-step">1. Key Rotation</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step error-step">2. HTTP 407 Intercepted</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">3. Transparent Retry</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step success-step">4. Connection Restored</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bug-bounty-section">
+            <div class="container bounty-container">
+                <div class="bounty-box">
+                    <h2 style="font-size: 32px; margin-bottom: 16px;">Responsible Disclosure</h2>
+                    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; font-size: 16px;">
+                        We believe that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product, we want to hear from you.
+                    </p>
+                    <a href="mailto:security@l7guard.com" class="btn btn-primary btn-large">Report a Vulnerability</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="logo">L7 Guard.</span>
+                <p class="copyright">&copy; 2026 L7 Admin Guard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
