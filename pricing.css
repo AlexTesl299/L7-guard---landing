@@ -6,7 +6,7 @@
     height: 100vh; /* Строго 1 экран */
     display: flex;
     align-items: center; /* Центрируем всё по вертикали */
-    padding-top: 80px; /* Отступ под шапку сайта */
+    padding-top: 1px; /* Отступ под шапку сайта */
     padding-bottom: 40px;
     overflow: hidden; /* Отключаем скролл на странице */
 }

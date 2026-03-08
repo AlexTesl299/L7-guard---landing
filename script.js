@@ -1,94 +1,138 @@
-// Ждем, пока вся страница загрузится
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Находим все элементы, у которых есть класс 'reveal'
+    // ==========================================
+    // 1. АНИМАЦИИ ПОЯВЛЕНИЯ (REVEAL) Оставляем как было
+    // ==========================================
     const reveals = document.querySelectorAll(".reveal");
-
-    // Настраиваем "Наблюдателя"
     const revealOptions = {
-        threshold: 0.15, // Блок начнет появляться, когда хотя бы 15% его высоты покажется на экране
-        rootMargin: "0px 0px -50px 0px" // Небольшой отступ, чтобы анимация срабатывала чуть раньше
+        threshold: 0.15,
     };
 
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            // Если блок появился в зоне видимости
             if (entry.isIntersecting) {
-                // Добавляем ему класс 'active', который запустит CSS-анимацию
                 entry.target.classList.add("active");
-                // Перестаем следить за этим блоком (чтобы он не мигал при скролле туда-сюда)
                 observer.unobserve(entry.target);
             }
         });
     }, revealOptions);
 
-    // Даем команду Наблюдателю следить за каждым блоком с классом 'reveal'
     reveals.forEach(reveal => {
         revealOnScroll.observe(reveal);
     });
 
-});
-
-// ==========================================
-    // ЛОГИКА ДЛЯ ВАРИАНТА 2 (БЕЗУПРЕЧНЫЙ СКРОЛЛ)
+    // ==========================================
+    // 2. УМНЫЙ СКРОЛЛ (1 КЛИК = 1 ЭКРАН)
     // ==========================================
     
-    const v2Layout = document.querySelector('.v2-layout'); 
-    const v2Tabs = document.querySelectorAll('.v2-tab-item');
-    const dynamicTitle = document.getElementById('dynamic-visual-title');
+    const sections = Array.from(document.querySelectorAll('section, .footer'));
     
-    let currentTabIndex = 0;
-    let isScrollLocked = false;
+    // 1. УМЕНЬШАЕМ ОТСТУП ОТ ШАПКИ (БЫЛО 80, СТАЛО 60)
+    const headerOffset = 60; 
+    let lastWheelTime = 0;
 
-    function activateTabByIndex(index) {
-        v2Tabs.forEach(t => t.classList.remove('active'));
-        v2Tabs[index].classList.add('active');
-        dynamicTitle.textContent = v2Tabs[index].getAttribute('data-title');
-        currentTabIndex = index;
-    }
+    // Главная функция плавного перелета
+    function scrollToSection(direction) {
+        const currentScroll = window.scrollY;
+        let currentIndex = 0;
 
-    // Слушаем скролл ТОЛЬКО когда курсор на блоке с контентом (.v2-layout)
-    if (v2Layout) {
-        v2Layout.addEventListener('wheel', (e) => {
-            
-            if (isScrollLocked) {
-                e.preventDefault(); 
-                return;
+        // 1. Стандартная проверка: на каком экране мы сейчас
+        sections.forEach((sec, index) => {
+            if (sec.offsetTop - headerOffset - 10 <= currentScroll) {
+                currentIndex = index;
             }
-
-            const scrollingDown = e.deltaY > 0;
-
-            if (scrollingDown) {
-                // Если мы ЕЩЕ НЕ на последнем пункте — переключаем пункт внутри блока
-                if (currentTabIndex < v2Tabs.length - 1) {
-                    e.preventDefault(); // Блокируем скролл страницы
-                    activateTabByIndex(currentTabIndex + 1);
-                    lockScroll(500); // Задержка 0.5с между переключениями (можешь менять)
-                } 
-                // Если пункт ПОСЛЕДНИЙ — мы просто ничего не делаем (не вызываем preventDefault).
-                // Страница сама естественно перемагнитится к следующему блоку!
-                
-            } else {
-                // Если мы ЕЩЕ НЕ на первом пункте — идем вверх по списку
-                if (currentTabIndex > 0) {
-                    e.preventDefault(); 
-                    activateTabByIndex(currentTabIndex - 1);
-                    lockScroll(500); 
-                } 
-                // Если пункт ПЕРВЫЙ — ничего не делаем, браузер сам вернет нас на прошлый экран.
-            }
-        }, { passive: false });
-    }
-
-    function lockScroll(time) {
-        isScrollLocked = true;
-        setTimeout(() => {
-            isScrollLocked = false;
-        }, time); 
-    }
-
-    v2Tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => {
-            activateTabByIndex(index);
         });
-    });
+
+        // 2. ИСПРАВЛЕНИЕ БАГА С ФУТЕРОМ: 
+        // Если сумма прокрутки и высоты экрана равна всей высоте сайта (уперлись в дно),
+        // принудительно говорим скрипту, что мы на последнем элементе (футере)
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10) {
+            currentIndex = sections.length - 1;
+        }
+
+        let nextIndex = currentIndex;
+
+        // 3. Вычисляем куда летим
+        if (direction === 1) {
+            nextIndex = currentIndex + 1;
+        } else if (direction === -1) {
+            nextIndex = currentIndex - 1;
+        }
+
+        if (nextIndex < 0) nextIndex = 0;
+        if (nextIndex >= sections.length) nextIndex = sections.length - 1;
+
+        // 4. Летим
+        window.scrollTo({
+            top: sections[nextIndex].offsetTop - headerOffset,
+            behavior: 'smooth'
+        });
+    }
+
+    // Слушаем колесико мыши
+    window.addEventListener('wheel', (e) => {
+        // Игнорируем тачпады (они генерируют мелкие deltaY и и так скроллят идеально)
+        if (Math.abs(e.deltaY) < 40) return;
+
+        const now = Date.now();
+        const timeDiff = now - lastWheelTime;
+        lastWheelTime = now;
+
+        // МАГИЯ СВОБОДНОГО СКРОЛЛА: 
+        // Если юзер крутит колесико ОЧЕНЬ быстро (события идут с разницей меньше 60мс)
+        if (timeDiff < 60) {
+            // Не вмешиваемся! Пусть браузер сам летит вниз сколько угодно.
+            return;
+        }
+
+        // Иначе это МЕДЛЕННЫЙ, ОДИНАРНЫЙ щелчок колесика.
+        e.preventDefault(); // Запрещаем дергаться на 100 пикселей
+        
+        // Летим ровно на 1 секцию
+        const direction = e.deltaY > 0 ? 1 : -1;
+        scrollToSection(direction);
+
+    }, { passive: false }); // passive: false обязательно для работы e.preventDefault()
+
+    // Слушаем стрелочки на клавиатуре
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'PageDown' || e.key === 'PageUp') {
+            e.preventDefault(); // Запрещаем дергаться
+            
+            let direction = 0;
+            if (e.key === 'ArrowDown' || e.key === 'PageDown') direction = 1;
+            if (e.key === 'ArrowUp' || e.key === 'PageUp') direction = -1;
+            
+            if (direction !== 0) {
+                scrollToSection(direction);
+            }
+        }
+    }, { passive: false });
+
+});
+
+
+// ==========================================
+// ФУНКЦИЯ: СКРОЛЛ К ЦЕНТРУ И ПОДСВЕТКА
+// ==========================================
+
+function scrollToAndHighlight(targetId) {
+    const targetBlock = document.getElementById(targetId);
+    
+    if (targetBlock) {
+        // 1. Плавно скроллим так, чтобы блок встал ровно по ЦЕНТРУ экрана
+        targetBlock.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+
+        // 2. Добавляем класс, который запускает CSS-анимацию свечения
+        targetBlock.classList.add('highlight-flash');
+
+        // 3. Убираем класс через 2 секунды (когда анимация закончится), 
+        // чтобы при повторном клике она сработала снова
+        setTimeout(() => {
+            targetBlock.classList.remove('highlight-flash');
+        }, 2000);
+    }
+}

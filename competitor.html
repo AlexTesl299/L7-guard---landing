@@ -6,6 +6,8 @@
     <title>Competitors Matrix - L7 Admin Guard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="competitors.css">
+    
+    
 </head>
 <body>
 
@@ -27,20 +29,24 @@
 
     <main class="main-content">
         
-        <section id="competitors-main" class="competitors-combined-section">
-            <div class="container combined-container">
-                
+        <section class="comp-title-stop">
+            <div class="container">
                 <div class="comp-header-text">
                     <span class="badge-tag">Competitive Analysis</span>
                     <h1 class="hero-title">How we stack up against <span class="text-gradient">the giants</span></h1>
-                    <p class="section-subtitle">Детальное техническое сравнение с популярными решениями. Кликните на любую колонку, чтобы подсветить конкурента.</p>
+                    <p class="section-subtitle">A detailed technical comparison with popular solutions. Click on any column to highlight a competitor.</p>
                 </div>
+            </div>
+        </section>
 
+        <section class="comp-table-stop">
+            <div class="container" style="height: 100%; display: flex; flex-direction: column;">
+                
                 <div class="matrix-wrapper">
                     <table class="competitor-matrix">
                         <thead>
                             <tr>
-                                <th class="col-feature sticky-col">Функция / Критерий</th>
+                                <th class="col-feature sticky-col">Feature / Criterion</th>
                                 <th class="highlight-col clickable-col">L7 Guard</th>
                                 <th class="clickable-col">Cloudflare</th>
                                 <th class="clickable-col">Tailscale</th>
@@ -53,10 +59,10 @@
                         <tbody>
                             
                             <tr class="category-row">
-                                <td colspan="8">Архитектура и Производительность</td>
+                                <td colspan="8">Architecture & Performance</td>
                             </tr>
                             <tr>
-                                <td class="col-feature sticky-col">No MITM / SNI Routing (без расшифровки)</td>
+                                <td class="col-feature sticky-col">No MITM / SNI Routing (no decryption)</td>
                                 <td class="highlight-col"><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-no">✗</span></td>
                                 <td><span class="icon-yes">✓</span></td>
@@ -66,7 +72,7 @@
                                 <td><span class="icon-no">✗</span></td>
                             </tr>
                             <tr>
-                                <td class="col-feature sticky-col">Browser Extension (без десктоп клиента)</td>
+                                <td class="col-feature sticky-col">Browser Extension (no desktop client)</td>
                                 <td class="highlight-col"><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-no">✗</span></td>
@@ -76,7 +82,7 @@
                                 <td><span class="icon-partial">~</span></td>
                             </tr>
                             <tr>
-                                <td class="col-feature sticky-col">Single Binary (<10 MB)</td>
+                                <td class="col-feature sticky-col">Single Binary (&lt;10 MB)</td>
                                 <td class="highlight-col"><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-no">✗</span></td>
                                 <td><span class="icon-partial">~</span></td>
@@ -86,86 +92,86 @@
                                 <td><span class="icon-yes">✓</span></td>
                             </tr>
                             <tr>
-                                <td class="col-feature sticky-col">Self-hosted возможность</td>
+                                <td class="col-feature sticky-col">Self-hosted capability</td>
                                 <td class="highlight-col"><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-no">✗</span></td>
                                 <td><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-no">✗</span></td>
                                 <td><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-partial">~</span></td>
-                            </tr>
-
-                            <tr class="category-row">
-                                <td colspan="8">Сертификаты и Деплой</td>
-                            </tr>
-                            <tr>
-                                <td class="col-feature sticky-col">Автодеплой шлюза за <30 секунд</td>
-                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-feature sticky-col">Автовыпуск Wildcard TLS</td>
-                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-feature sticky-col">Live Cert Rotation без рестарта</td>
-                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-partial">~</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                            </tr>
-
-                            <tr class="category-row">
-                                <td colspan="8">Управление доступом</td>
-                            </tr>
-                            <tr>
-                                <td class="col-feature sticky-col">Stateful TTL (изменение на лету)</td>
-                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-feature sticky-col">Instant Kill-Switch (мгновенный отзыв)</td>
-                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-feature sticky-col">Bandwidth Quota / Лимиты трафика</td>
-                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-partial">~</span></td>
-                                <td><span class="icon-no">✗</span></td>
-                                <td><span class="icon-no">✗</span></td>
                                 <td><span class="icon-partial">~</span></td>
                             </tr>
 
                             <tr class="category-row">
-                                <td colspan="8">Браузер и UX</td>
+                                <td colspan="8">Certificates & Deployment</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Gateway auto-deploy in &lt;30 seconds</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Automated Wildcard TLS issuance</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Live Cert Rotation without restarts</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+
+                            <tr class="category-row">
+                                <td colspan="8">Access Control</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Stateful TTL (on-the-fly modification)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Instant Kill-Switch (immediate revocation)</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature sticky-col">Bandwidth Quota / Traffic limits</td>
+                                <td class="highlight-col"><span class="icon-yes">✓</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-no">✗</span></td>
+                                <td><span class="icon-partial">~</span></td>
+                            </tr>
+
+                            <tr class="category-row">
+                                <td colspan="8">Browser & UX</td>
                             </tr>
                             <tr>
                                 <td class="col-feature sticky-col">Per-Tab Split Tunneling</td>
@@ -178,7 +184,7 @@
                                 <td><span class="icon-no">✗</span></td>
                             </tr>
                             <tr>
-                                <td class="col-feature sticky-col">Stealth Mode (404 для сканеров)</td>
+                                <td class="col-feature sticky-col">Stealth Mode (404 for scanners)</td>
                                 <td class="highlight-col"><span class="icon-yes">✓</span></td>
                                 <td><span class="icon-no">✗</span></td>
                                 <td><span class="icon-no">✗</span></td>
@@ -189,7 +195,7 @@
                             </tr>
 
                             <tr class="summary-row">
-                                <td class="col-feature sticky-col" style="font-weight: 800;">Уникальных функций</td>
+                                <td class="col-feature sticky-col" style="font-weight: 800;">Unique Features</td>
                                 <td class="highlight-col" style="font-size: 24px; color: var(--text-main);">34/34</td>
                                 <td>8/34</td>
                                 <td>10/34</td>
@@ -207,7 +213,6 @@
         </section>
 
     </main>
-
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-left">
@@ -223,34 +228,49 @@
             const table = document.querySelector('.competitor-matrix');
             if (!table) return;
 
-            // Слушаем клики по таблице
+            // ==========================================
+            // ФУНКЦИОНАЛ ПОДСВЕТКИ КОЛОНОК (Оставлен без изменений)
+            // ==========================================
             table.addEventListener('click', (e) => {
-                // Ищем, по какой ячейке (td или th) кликнули
                 const cell = e.target.closest('td, th');
                 if (!cell) return;
-
-                // Запрещаем кликать по первой колонке с названиями и по строкам-разделителям
                 if (cell.classList.contains('col-feature') || cell.hasAttribute('colspan')) return;
-
-                // Узнаем порядковый номер колонки, по которой кликнули (от 0 до 7)
+                
                 const targetIndex = cell.cellIndex;
-
-                // 1. Убираем подсветку у ВСЕХ ячеек
                 const allCells = table.querySelectorAll('td, th');
                 allCells.forEach(c => c.classList.remove('highlight-col'));
-
-                // 2. Добавляем подсветку ВСЕМ ячейкам, которые находятся в этой же колонке
+                
                 const rows = table.querySelectorAll('tr');
                 rows.forEach(row => {
-                    // Пропускаем строки с названиями категорий
                     if (row.classList.contains('category-row')) return;
-                    
                     const targetCell = row.children[targetIndex];
                     if (targetCell) {
                         targetCell.classList.add('highlight-col');
                     }
                 });
             });
+
+            // ==========================================
+            // ЩИТ ДЛЯ СКРОЛЛА (Блокирует глобальный скролл, пока не дочитаешь таблицу)
+            // ==========================================
+            const tableScrollContainer = document.querySelector('.matrix-wrapper');
+            if (tableScrollContainer) {
+                tableScrollContainer.addEventListener('wheel', (e) => {
+                    const scrollingDown = e.deltaY > 0;
+                    
+                    // Вычисляем, достигли ли мы дна или верха самой таблицы
+                    const isAtBottom = Math.abs(tableScrollContainer.scrollHeight - tableScrollContainer.clientHeight - tableScrollContainer.scrollTop) < 2;
+                    const isAtTop = tableScrollContainer.scrollTop <= 0;
+
+                    if (scrollingDown && !isAtBottom) {
+                        // Если крутим вниз, но дно еще не достигнуто -> стопорим страницу, крутим таблицу
+                        e.stopPropagation(); 
+                    } else if (!scrollingDown && !isAtTop) {
+                        // Если крутим вверх, но верх еще не достигнут -> стопорим страницу, крутим таблицу
+                        e.stopPropagation(); 
+                    }
+                }, { passive: false });
+            }
         });
     </script>
 </html>

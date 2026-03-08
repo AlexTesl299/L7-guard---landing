@@ -146,7 +146,7 @@
 /* Делаем так, чтобы весь контент страницы занимал ровно 1 экран (100vh) */
 .competitors-combined-section {
     height: 100vh;
-    padding-top: 100px; /* Отступ под шапку сайта */
+    padding-top: 30px; /* Отступ под шапку сайта */
     padding-bottom: 40px;
     display: flex;
     flex-direction: column;
@@ -167,7 +167,7 @@
 
 .comp-header-text .hero-title {
     font-size: 42px; /* Чуть уменьшили заголовок, чтобы дать место таблице */
-    margin: 12px 0;
+    margin: 1px 0;
 }
 
 .comp-header-text .section-subtitle {
@@ -256,3 +256,30 @@
     font-size: 18px;
     font-weight: 800;
 }
+
+/* ОСТАНОВКА 1: Заголовок */
+        .comp-title-stop {
+            padding-top: 40px; 
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        /* ОСТАНОВКА 2: Полноэкранная таблица */
+        .comp-table-stop {
+            height: calc(100vh - 80px); /* 100% высоты экрана минус шапка (80px) */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Контейнер таблицы, который будет скроллиться внутри себя */
+        .matrix-wrapper {
+            flex: 1;
+            overflow-y: auto; /* Включаем внутренний скролл */
+            padding-bottom: 40px;
+        }
+
+        /* Красивый скроллбар для таблицы */
+        .matrix-wrapper::-webkit-scrollbar { width: 6px; }
+        .matrix-wrapper::-webkit-scrollbar-track { background: transparent; }
+        .matrix-wrapper::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
